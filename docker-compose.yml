@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - "mongodb:db"
+    environment:
+      - DATABASE_URL=mongodb://db:27017/app
+  mongodb:
+    image: mongo:3.3
+    ports:
+      - "27017:27017"

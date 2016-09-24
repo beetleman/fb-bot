@@ -8,6 +8,6 @@ ADD . /app
 WORKDIR /app
 
 EXPOSE 3000
+EXPOSE 7000
 
-RUN lein uberjar
-CMD ["java", "-jar", "target/uberjar/fb-boot.jar"]
+RUN lein deps
