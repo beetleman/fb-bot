@@ -49,7 +49,7 @@ services:
       - "mongodb:db"
     environment:
       - DATABASE_URL=mongodb://db:27017/app-tests
-    tty: true
+    stdin_open: true
     command: lein test-refresh
 
 
