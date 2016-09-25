@@ -1,6 +1,7 @@
 (ns fb-boot.routes.services
   (:require [ring.util.http-response :refer :all]
             [compojure.api.sweet :refer :all]
+            [fb-boot.db.core :as db]
             [schema.core :as s]))
 
 (defapi service-routes
@@ -9,7 +10,7 @@
              :data {:info {:version "1.0.0"
                            :title "Sample API"
                            :description "Sample Services"}}}}
-  
+
   (context "/api" []
     :tags ["thingie"]
 

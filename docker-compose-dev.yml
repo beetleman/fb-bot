@@ -16,25 +16,8 @@ services:
       - DATABASE_URL=mongodb://db:27017/app-dev
     ports:
       - "3000:3000"
-    command: lein run
-
-  dev-repl:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - ./resources:/app/resources
-      - ./src:/app/src
-      - ./test:/app/test
-      - m2-cache:/root/.m2
-    links:
-      - "mongodb:db"
-    environment:
-      - DATABASE_URL=mongodb://db:27017/app-dev
-    ports:
-      - "3000:3000"
       - "7000:7000"
-    command: lein repl :headless :port 7000 :host 0.0.0.0
+    command: lein run
 
   tests:
     build:
@@ -51,7 +34,6 @@ services:
       - DATABASE_URL=mongodb://db:27017/app-tests
     stdin_open: true
     command: lein test-refresh
-
 
   mongodb:
     image: mongo:3.3

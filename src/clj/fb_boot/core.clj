@@ -27,11 +27,12 @@
                 repl-server
                 :start
                 (when-let [nrepl-port (env :nrepl-port)]
-                  (repl/start {:port nrepl-port :handler cider-nrepl-handler}))
+                  (repl/start {:port nrepl-port
+                               :handler cider-nrepl-handler
+                               :bind "0.0.0.0"}))
                 :stop
                 (when repl-server
                   (repl/stop repl-server)))
-
 
 (defn stop-app []
   (doseq [component (:stopped (mount/stop))]
