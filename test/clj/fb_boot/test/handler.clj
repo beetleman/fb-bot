@@ -15,4 +15,4 @@
   (testing "subscribe"
     (let [response ((app) (request :get subscribe-url))]
       (is (= 200 (:status response)))
-      (is (= (str \" subscribe-challenge \") (-> response :body slurp))))))
+      (is (= subscribe-challenge (-> response :body))))))

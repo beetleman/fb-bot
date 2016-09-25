@@ -5,6 +5,13 @@
             [fb-boot.facebook :as fb]
             [schema.core :as s]))
 
+
+(s/defschema FB-Event {:object String
+                       :entry [{:messaging [{:sender {:is String}
+                                             :message {:text String}}]}]})
+
+
+
 (defapi service-routes
   {:swagger {:ui "/swagger-ui"
              :spec "/swagger.json"
@@ -16,9 +23,13 @@
     :tags ["facebook boot"]
 
     (GET "/facebook" []
-         :return String
          :query [query {:hub.challenge String
                         :hub.mode String
                         :hub.verify_token String}]
          :summary "checking token"
-         (fb/subscribe query fb/TOKEN))))
+         (fb/subscribe query fb/TOKEN))
+
+    (POST "/facebook" []
+          :body [event FB-Event]
+          :summary "fb event handler"
+          (fb/recive event fb/PROFILE_TOKEN))))
