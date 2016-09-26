@@ -1,7 +1,6 @@
 (ns fb-boot.routes.services
   (:require [ring.util.http-response :refer :all]
             [compojure.api.sweet :refer :all]
-            [fb-boot.db.core :as db]
             [fb-boot.facebook :as fb]
             [schema.core :as s]))
 
@@ -9,7 +8,6 @@
 (s/defschema FB-Event {:object String
                        :entry [{:messaging [{:sender {:is String}
                                              :message {:text String}}]}]})
-
 
 
 (defapi service-routes
