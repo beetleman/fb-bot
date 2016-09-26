@@ -2,10 +2,11 @@
   (:require [aleph.http :as http]
             [fb-boot.config :refer [env]]))
 
-(def TOKEN (get env :facebook-acces-token "example"))
+(def TOKEN (get env :facebook-access-token "example"))
 (def PROFILE_TOKEN (get env :facebook-profile-token "example"))
 
 (defn valid-subscribe? [data token]
+  (println {:data data :token token})
   (and (= (:hub.mode data) "subscribe")
        (= (:hub.verify_token data) token)))
 
