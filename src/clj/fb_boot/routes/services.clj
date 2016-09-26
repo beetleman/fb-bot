@@ -6,8 +6,14 @@
 
 
 (s/defschema FB-Event {:object String
-                       :entry [{:messaging [{:sender {:is String}
-                                             :message {:text String}}]}]})
+                       :entry [{:messaging [{:sender {:id String}
+                                             :recipient {:id String}
+                                             :timestamp Long
+                                             :message {:text String
+                                                       :mid String
+                                                       :seq Integer}}]
+                                :time Long
+                                :id String}]})
 
 
 (defapi service-routes

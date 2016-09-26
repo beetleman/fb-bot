@@ -1,6 +1,8 @@
 (ns fb-boot.facebook
   (:require [aleph.http :as http]
+            [cheshire.core :as json]
             [fb-boot.config :refer [env]]))
+
 
 (def TOKEN (or (System/getenv "FACEBOOK_ACCESS_TOKEN")
                "FACEBOOK_ACCESS_TOKEN"))
@@ -23,27 +25,27 @@
 (defn call-messages-api [message token]
   (let [payload {:content-type :json
                  :query-params {:access_token token}
-                 :json-opts message}]
+                 :body (json/generate-string message)}]
     (http/post "https://graph.facebook.com/v2.6/me/messages" payload)))
 
 
 (defn send-text-message [text id token]
+  (println text id token)
   (call-messages-api {:recipient {:id id}
-                      :message {:text text}}))
+                      :message {:text text}}
+                     token))
 
 
 (defn message-handler* [message-event]
-  (cond
-    (:message message-event)
-    (send-text-message (get-in message-event [:message :text])
-                       (get-in message-event [:sender :id])
-                       PROFILE_TOKEN)))
+  (send-text-message (get-in message-event [:message :text])
+                     (get-in message-event [:sender :id])
+                     PROFILE_TOKEN))
 
 (defn messages-handler [messages]
-  (do (map message-handler* messages)))
+  (doall (map message-handler* (:messaging messages))))
 
 
 (defn recive [data token]
   (when (= "page" (:object data))
-    (do (map messages-handler (:entry data))))
+    (doall (map messages-handler (:entry data))))
   {:status 200})
