@@ -1,8 +1,8 @@
-(ns fb-boot.core
-  (:require [fb-boot.handler :as handler]
+(ns fb-bot.core
+  (:require [fb-bot.handler :as handler]
             [luminus.repl-server :as repl]
             [luminus.http-server :as http]
-            [fb-boot.config :refer [env]]
+            [fb-bot.config :refer [env]]
             [cider.nrepl :refer [cider-nrepl-handler]]
             [clojure.tools.cli :refer [parse-opts]]
             [clojure.tools.logging :as log]

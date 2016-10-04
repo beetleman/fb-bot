@@ -1,4 +1,4 @@
-# fb-boot
+# fb-bot
 
 generated using Luminus version "2.9.11.02"
 

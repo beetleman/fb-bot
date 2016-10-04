@@ -1,7 +1,7 @@
-(ns fb-boot.routes.services
+(ns fb-bot.routes.services
   (:require [ring.util.http-response :refer :all]
             [compojure.api.sweet :refer :all]
-            [fb-boot.facebook :as fb]
+            [fb-bot.facebook :as fb]
             [schema.core :as s]))
 
 
@@ -24,7 +24,7 @@
                            :description "Sample fb bot"}}}}
 
   (context "/api" []
-    :tags ["facebook boot"]
+    :tags ["facebook bot"]
 
     (GET "/facebook" []
          :query [query {:hub.challenge String

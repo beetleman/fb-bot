@@ -1,8 +1,8 @@
-(ns fb-boot.test.handler
+(ns fb-bot.test.handler
   (:require [clojure.test :refer :all]
             [ring.mock.request :refer :all]
-            [fb-boot.facebook :as fb]
-            [fb-boot.handler :refer :all]))
+            [fb-bot.facebook :as fb]
+            [fb-bot.handler :refer :all]))
 
 (def subscribe-challenge "qwerty")
 (def subscribe-url

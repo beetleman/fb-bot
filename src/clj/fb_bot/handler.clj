@@ -1,10 +1,10 @@
-(ns fb-boot.handler
+(ns fb-bot.handler
   (:require [compojure.core :refer [routes wrap-routes]]
-            [fb-boot.routes.services :refer [service-routes]]
+            [fb-bot.routes.services :refer [service-routes]]
             [compojure.route :as route]
-            [fb-boot.env :refer [defaults]]
+            [fb-bot.env :refer [defaults]]
             [mount.core :as mount]
-            [fb-boot.middleware :as middleware]))
+            [fb-bot.middleware :as middleware]))
 
 (mount/defstate init-app
                 :start ((or (:init defaults) identity))

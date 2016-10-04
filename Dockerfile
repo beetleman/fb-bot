@@ -10,4 +10,4 @@ WORKDIR /app
 EXPOSE 3000
 
 RUN lein uberjar
-CMD ["java", "-jar", "target/uberjar/fb-boot.jar"]
+CMD ["java", "-jar", "target/uberjar/fb-bot.jar"]

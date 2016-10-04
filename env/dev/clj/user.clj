@@ -1,15 +1,13 @@
 (ns user
   (:require [mount.core :as mount]
-            fb-boot.core))
+            fb-bot.core))
 
 (defn start []
-  (mount/start-without #'fb-boot.core/repl-server))
+  (mount/start-without #'fb-bot.core/repl-server))
 
 (defn stop []
-  (mount/stop-except #'fb-boot.core/repl-server))
+  (mount/stop-except #'fb-bot.core/repl-server))
 
 (defn restart []
   (stop)
   (start))
-
-

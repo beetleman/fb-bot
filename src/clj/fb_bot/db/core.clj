@@ -1,9 +1,9 @@
-(ns fb-boot.db.core
+(ns fb-bot.db.core
     (:require [monger.core :as mg]
               [monger.collection :as mc]
               [monger.operators :refer :all]
               [mount.core :refer [defstate]]
-              [fb-boot.config :refer [env]]))
+              [fb-bot.config :refer [env]]))
 
 (defstate db*
   :start (-> env :database-url mg/connect-via-uri)

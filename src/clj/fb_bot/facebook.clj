@@ -1,7 +1,7 @@
-(ns fb-boot.facebook
+(ns fb-bot.facebook
   (:require [aleph.http :as http]
             [cheshire.core :as json]
-            [fb-boot.config :refer [env]]))
+            [fb-bot.config :refer [env]]))
 
 
 (def TOKEN (or (System/getenv "FACEBOOK_ACCESS_TOKEN")

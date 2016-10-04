@@ -1,4 +1,4 @@
-(defproject fb-boot "0.1.0-SNAPSHOT"
+(defproject fb-bot "0.1.0-SNAPSHOT"
 
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
@@ -34,14 +34,14 @@
   :source-paths ["src/clj"]
   :resource-paths ["resources"]
   :target-path "target/%s/"
-  :main fb-boot.core
+  :main fb-bot.core
 
   :plugins [[lein-cprop "1.0.1"]]
 
   :profiles
   {:uberjar {:omit-source true
              :aot :all
-             :uberjar-name "fb-boot.jar"
+             :uberjar-name "fb-bot.jar"
              :source-paths ["env/prod/clj"]
              :resource-paths ["env/prod/resources"]}
 
@@ -53,7 +53,7 @@
                                  [ring/ring-devel "1.5.0"]
                                  [pjstadig/humane-test-output "0.8.1"]]
                   :plugins      [[com.jakemccrary/lein-test-refresh "0.14.0"]]
-                  
+
                   :source-paths ["env/dev/clj" "test/clj"]
                   :resource-paths ["env/dev/resources"]
                   :repl-options {:init-ns user}

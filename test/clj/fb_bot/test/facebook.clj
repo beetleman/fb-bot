@@ -1,7 +1,7 @@
-(ns fb-boot.test.facebook
+(ns fb-bot.test.facebook
   (:require [clojure.test :refer :all]
             [ring.mock.request :refer :all]
-            [fb-boot.facebook :as fb]))
+            [fb-bot.facebook :as fb]))
 
 (def TOKEN "1234qwer")
 

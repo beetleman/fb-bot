@@ -1,6 +1,6 @@
-(ns fb-boot.middleware
-  (:require [fb-boot.env :refer [defaults]]
-            [fb-boot.config :refer [env]]
+(ns fb-bot.middleware
+  (:require [fb-bot.env :refer [defaults]]
+            [fb-bot.config :refer [env]]
             [ring-ttl-session.core :refer [ttl-memory-store]]
             [ring.middleware.defaults :refer [site-defaults wrap-defaults]]))
 
